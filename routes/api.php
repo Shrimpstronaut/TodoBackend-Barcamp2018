@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 
 Route::get('/todos', 'TodoController@findAll');
 
+Route::get('/todos/{id}', 'TodoController@findOne');
+
 Route::post('/todos', 'TodoController@store');
 
-Route::delete('/todos', 'TodoController@remove');
+Route::delete('/todos/{id}', 'TodoController@remove');

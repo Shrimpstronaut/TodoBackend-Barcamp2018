@@ -23,6 +23,17 @@ class TodoController extends Controller
     }
 
     /**
+     * Return a single existing task with given id.
+     *
+     * @param $taskId
+     * @return mixed
+     */
+    public function findOne($taskId)
+    {
+        return Todo::find($taskId);
+    }
+
+    /**
      * Persist new task from given request object.
      *
      * @param Request $request
@@ -45,9 +56,9 @@ class TodoController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function remove(Request $request)
+    public function remove($id)
     {
-        $todo = Todo::find($request->id);
+        $todo = Todo::find($id);
 
         if ($todo) {
             $todo->delete();
